@@ -1,0 +1,58 @@
+{
+	"scope": "text.pip-requirements - meta.expect-option-or-package - entity.name - variable.parameter",
+	"completions": [
+		{
+			"trigger": "and",
+			"kind": "keyword",
+		},
+		{
+			"trigger": "or",
+			"kind": "keyword",
+		},
+		{
+			"trigger": "in",
+			"kind": "keyword",
+		},
+		{
+			"trigger": "not in",
+			"kind": "keyword",
+		},
+		{
+			"trigger": "implementation_name",
+			"kind": "variable",
+		},
+		{
+			"trigger": "implementation_version",
+			"kind": "variable",
+		},
+		{
+			"trigger": "os.name",
+			"kind": "variable",
+		},
+		{
+			"trigger": "python_version",
+			"kind": "variable",
+		},
+		{
+			"trigger": "python_full_version",
+			"kind": "variable",
+		},
+		{
+			"trigger": "sys.platform",
+			"kind": "variable",
+		},
+		{
+			"trigger": "platform.version",
+			"kind": "variable",
+		},
+		{
+			"trigger": "platform.machine",
+			"kind": "variable",
+		},
+		{
+			"trigger": "platform.python_implementation",
+			"kind": "variable",
+		},
+
+	],
+}

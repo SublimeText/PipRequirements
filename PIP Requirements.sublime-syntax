@@ -1,0 +1,227 @@
+%YAML 1.2
+---
+# https://www.sublimetext.com/docs/syntax.html
+# https://pip.pypa.io/en/stable/reference/requirements-file-format/
+name: PIP Requirements
+scope: text.pip-requirements
+version: 2
+
+file_extensions:
+  - requirements.txt
+  - devrequirements.txt
+  - dev_requirements.txt
+  - dev-requirements.txt
+  - requirementsdev.txt
+  - requirements_dev.txt
+  - requirements-dev.txt
+
+variables:
+  pep440_version: |-
+    (?xi:
+      (v?)
+      (?:([0-9]+)(!))?                               # epoch
+      ([0-9]+(?:\.[0-9]+)*)                          # release segment
+      (?:
+        \.\*                                         # version wildcard
+      |
+        (?:                                          # pre-release
+          [-_.]?
+          (alpha|a|beta|b|preview|pre|c|rc)
+          [-_.]?
+          ([0-9]+)?
+        )?
+        (?:                                         # post release
+          (?:-([0-9]+))
+          |
+          (?:
+            [-_.]?
+            (patch|post|rev|r)
+            [-_.]?
+            ([0-9]+)?
+          )
+        )?
+        (?:                                        # dev release
+          [-_.]?
+          (devel|dev)
+          [-_.]?
+          ([0-9]+)?
+        )?
+      )
+    )
+
+  variables: |-
+    (?x:
+    | implementation_name
+    | implementation_version
+    | os\.name
+    | python_version
+    | python_full_version
+    | sys\.platform
+    | platform\.version
+    | platform\.machine
+    | platform\.python_implementation
+    )\b
+
+contexts:
+  main:
+    - include: comments
+    - include: brackets
+    - include: options
+    - include: urls
+    - include: paths
+    - include: packages
+    - include: operators
+    - include: separators
+    - include: strings
+    - include: versions
+    - include: variables
+
+  comments:
+    - match: \#+
+      scope: punctuation.definition.comment.pip-requirements
+      push: comment-body
+
+  comment-body:
+    - meta_scope: comment.line.pip-requirements
+    - match: (#*)$\n?
+      captures:
+        1: punctuation.definition.comment.pip-requirements
+      pop: 1
+
+  brackets:
+    - match: \[
+      scope: punctuation.section.brackets.begin.pip-requirements
+      push: brackets-body
+
+  brackets-body:
+    - meta_scope: meta.brackets.pip-requirements
+    - match: \]
+      scope: punctuation.section.brackets.end.pip-requirements
+      pop: 1
+    - match: \n
+      scope: invalid.illegal.newline.pip-requirements
+      pop: 1
+    - match: ','
+      scope: punctuation.separator.pip-requirements
+    - match: '[0-9A-Za-z._-]+'
+      scope: entity.name.package.pip-requirements
+    - match: (?=\S)
+      pop: 1
+
+  options:
+    - match: ^(--?)(?:[A-Za-z][0-9A-Za-z._-]*)?
+      scope: variable.parameter.option.pip-requirements
+      captures:
+        1: punctuation.definition.variable.pip-requirements
+
+  packages:
+    - match: ^[0-9A-Za-z._-]+
+      scope: entity.name.package.pip-requirements
+    - match: ^\s+  # enables completions at bol
+      scope: meta.expect-option-or-package.pip-requirements
+
+  versions:
+    - match: '{{pep440_version}}'
+      scope: constant.numeric.version.pip-requirements
+
+  operators:
+    - match: '@'
+      scope: keyword.operator.at.pip-requirements
+    - match: '===?|[!~]=|<=|>=|<|>'
+      scope: keyword.operator.comparison.pip-requirements
+    - match: \b(?:and|or|(?:not\s+)?in)\b
+      scope: keyword.operator.logical.pip-requirements
+
+  separators:
+    - match: ','
+      scope: punctuation.separator.pip-requirements
+    - match: ';'
+      scope: punctuation.separator.pip-requirements
+
+  strings:
+    - match: \"
+      scope: punctuation.definition.string.begin.pip-requirements
+      push: double-quoted-string-body
+    - match: \'
+      scope: punctuation.definition.string.begin.pip-requirements
+      push: single-quoted-string-body
+
+  double-quoted-string-body:
+    - meta_include_prototype: false
+    - meta_scope: meta.string.pip-requirements string.quoted.double.pip-requirements
+    - match: \"
+      scope: punctuation.definition.string.end.pip-requirements
+      pop: 1
+
+  single-quoted-string-body:
+    - meta_include_prototype: false
+    - meta_scope: meta.string.pip-requirements string.quoted.single.pip-requirements
+    - match: \'
+      scope: punctuation.definition.string.end.pip-requirements
+      pop: 1
+
+  paths:
+    - match: (?=(?:\\.|[^\s\\/])*[\\/])
+      push: [path-content, path-start]
+
+  path-start:
+    # windows drive letter and separator
+    - match: '[A-Za-z](:)(?=[\\/])'
+      captures:
+        1: punctuation.separator.path.pip-requirements
+      pop: 1
+    # homedir tilde operator
+    - match: ~(?=/)
+      scope: variable.language.environment.home.pip-requirements
+      pop: 1
+    # any other directory pattern
+    - include: path-dir-pattern
+
+  path-content:
+    - meta_content_scope: meta.path.pip-requirements string.unquoted.pip-requirements
+    - match: (?=\s)
+      pop: 1
+    - match: '[\\/]'
+      scope: punctuation.separator.path.pip-requirements
+      push: path-dir-pattern
+    - match: \\.
+      scope: constant.character.escape.pip-requirements
+    - match: '[*?]'
+      scope: invalid.illegal.path.pip-requirements
+
+  path-dir-pattern:
+    - match: \.\.(?=[\\/])
+      scope: constant.other.path.parent.pip-requirements
+      pop: 1
+    - match: \.(?=[\\/])
+      scope: constant.other.path.self.pip-requirements
+      pop: 1
+    - match: ''
+      pop: 1
+
+  urls:
+    - match: (?:[\w+-]+(://)|www\.)
+      scope: meta.link.protocol.pip-requirements markup.underline.link.pip-requirements
+      captures:
+        1: punctuation.separator.path.pip-requirements
+      push: url-content
+
+  url-content:
+    - meta_content_scope: meta.link.pip-requirements markup.underline.link.pip-requirements
+    # Spaces are not allowed in urls
+    - match: (?=\s)
+      pop: 1
+    - match: (%)\h{2}
+      scope: constant.character.escape.url.pip-requirements
+      captures:
+        1: punctuation.definition.escape.pip-requirements
+    - match: '[/&?#]'
+      scope: punctuation.separator.path.pip-requirements
+
+  variables:
+    - match: '{{variables}}'
+      scope: variable.language.pip-requirements
+    - match: \h{8,}
+      scope: meta.hash.pip-requirements constant.numeric.value.pip-requirements
+    - match: \S+
+      scope: variable.other.pip-requirements

@@ -1,0 +1,277 @@
+# SYNTAX TEST "PIP Requirements.sublime-syntax"
+
+# -*- coding: utf-8 -*-
+# <- comment.line.pip-requirements punctuation.definition.comment.pip-requirements
+#^^^^^^^^^^^^^^^^^^^^^^^ comment.line.pip-requirements - punctuation
+
+###[ OPTIONS ]#################################################################
+
+-i https://pypi.python.org/simple/
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements - punctuation
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ markup.underline.link.pip-requirements
+
+--index-url https://pypi.python.org/simple/
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ markup.underline.link.pip-requirements
+
+--extra-index-url https://pypi.python.org/simple/
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ markup.underline.link.pip-requirements
+
+--no-index
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+
+-c
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements - punctuation
+
+--constraint
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+
+-r
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements - punctuation
+
+--requirement
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+
+-e /local/project/path
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements - punctuation
+#  ^^^^^^^^^^^^^^^^^^^ meta.path.pip-requirements string.unquoted.pip-requirements
+#  ^ punctuation.separator.path.pip-requirements
+#        ^ punctuation.separator.path.pip-requirements
+#                ^ punctuation.separator.path.pip-requirements
+
+--editable https://gitlab.com/project/path.git
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ markup.underline.link.pip-requirements
+
+-f
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements - punctuation
+
+--find-links
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+
+--no-binary
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+
+--only-binary
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+
+--prefer-binary
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+
+--require-hashes
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+
+--pre
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^ variable.parameter.option.pip-requirements - punctuation
+
+--trusted-host
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+
+--use-feature
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+
+# Per-requirement options
+#   New in version 7.0.
+
+--global-option
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+
+--config-settings
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^^^^^^^^^^^^ variable.parameter.option.pip-requirements - punctuation
+
+--hash efe25e3bdf2e8f791d86327978aabe093c9597a6ceb8c2fb5438c1d810e02bea
+# <- variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+#^ variable.parameter.option.pip-requirements punctuation.definition.variable.pip-requirements
+# ^^^^ variable.parameter.option.pip-requirements - punctuation
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.hash.pip-requirements constant.numeric.value.pip-requirements
+
+###[ PACKAGES ]################################################################
+
+SomeProject
+# <- entity.name.package.pip-requirements
+#^^^^^^^^^^ entity.name.package.pip-requirements
+
+SomeProject == 1.3
+# <- entity.name.package.pip-requirements
+#^^^^^^^^^^ entity.name.package.pip-requirements
+#           ^^ keyword.operator.comparison.pip-requirements
+#              ^^^ constant.numeric.version.pip-requirements
+
+SomeProject >= 1.2, < 2.0
+# <- entity.name.package.pip-requirements
+#^^^^^^^^^^ entity.name.package.pip-requirements
+#           ^^ keyword.operator.comparison.pip-requirements
+#              ^^^ constant.numeric.version.pip-requirements
+#                 ^ punctuation.separator.pip-requirements
+#                   ^ keyword.operator.comparison.pip-requirements
+#                     ^^^ constant.numeric.version.pip-requirements
+
+SomeProject[foo
+# <- entity.name.package.pip-requirements
+#^^^^^^^^^^ entity.name.package.pip-requirements
+#          ^^^^^ meta.brackets.pip-requirements
+#          ^ punctuation.section.brackets.begin.pip-requirements
+#           ^^^ entity.name.package.pip-requirements
+#              ^ invalid.illegal.newline.pip-requirements
+
+SomeProject[foo, bar]
+# <- entity.name.package.pip-requirements
+#^^^^^^^^^^ entity.name.package.pip-requirements
+#          ^^^^^^^^^^ meta.brackets.pip-requirements
+#          ^ punctuation.section.brackets.begin.pip-requirements
+#           ^^^ entity.name.package.pip-requirements
+#              ^ punctuation.separator.pip-requirements
+#                ^^^ entity.name.package.pip-requirements
+#                   ^ punctuation.section.brackets.end.pip-requirements
+
+SomeProject[foo ~= 1.4.2
+# <- entity.name.package.pip-requirements
+#^^^^^^^^^^ entity.name.package.pip-requirements
+#          ^^^^^ meta.brackets.pip-requirements
+#          ^ punctuation.section.brackets.begin.pip-requirements
+#           ^^^ entity.name.package.pip-requirements
+#               ^^ keyword.operator.comparison.pip-requirements
+#                  ^^^^^ constant.numeric.version.pip-requirements
+
+SomeProject ~= 1.4.2
+# <- entity.name.package.pip-requirements
+#^^^^^^^^^^ entity.name.package.pip-requirements
+#           ^^ keyword.operator.comparison.pip-requirements
+#              ^^^^^ constant.numeric.version.pip-requirements
+
+SomeProject == 5.4 ; python_version < '3.8'
+# <- entity.name.package.pip-requirements
+#^^^^^^^^^^ entity.name.package.pip-requirements
+#           ^^ keyword.operator.comparison.pip-requirements
+#              ^^^ constant.numeric.version.pip-requirements
+#                  ^ punctuation.separator.pip-requirements
+#                    ^^^^^^^^^^^^^^ variable.language.pip-requirements
+#                                   ^ keyword.operator.comparison.pip-requirements
+#                                     ^^^^^ meta.string.pip-requirements string.quoted.single.pip-requirements
+
+SomeProject ; sys.platform == 'win32'
+# <- entity.name.package.pip-requirements
+#^^^^^^^^^^ entity.name.package.pip-requirements
+#           ^ punctuation.separator.pip-requirements
+#             ^^^^^^^^^^^^ variable.language.pip-requirements
+#                          ^^ keyword.operator.comparison.pip-requirements
+#                             ^^^^^^^ meta.string.pip-requirements string.quoted.single.pip-requirements
+
+requests [security] >= 2.8.1, == 2.8.* ; python_version < "2.7"
+# <- entity.name.package.pip-requirements
+#^^^^^^^ entity.name.package.pip-requirements
+#        ^^^^^^^^^^ meta.brackets.pip-requirements
+#        ^ punctuation.section.brackets.begin.pip-requirements
+#         ^^^^^^^^ entity.name.package.pip-requirements
+#                 ^ punctuation.section.brackets.end.pip-requirements
+#                   ^^ keyword.operator.comparison.pip-requirements
+#                      ^^^^^ constant.numeric.version.pip-requirements
+#                           ^ punctuation.separator.pip-requirements
+#                             ^^ keyword.operator.comparison.pip-requirements
+#                                ^^^^^ constant.numeric.version.pip-requirements
+#                                      ^ punctuation.separator.pip-requirements
+#                                        ^^^^^^^^^^^^^^ variable.language.pip-requirements
+#                                                       ^ keyword.operator.comparison.pip-requirements
+#                                                         ^^^^^ meta.string.pip-requirements string.quoted.double.pip-requirements
+
+urllib3 @ https://github.com/urllib3/urllib3/archive/refs/tags/1.26.8.zip
+# <- entity.name.package.pip-requirements
+#^^^^^^ entity.name.package.pip-requirements
+#       ^ keyword.operator.at.pip-requirements
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ markup.underline.link.pip-requirements
+
+###[ LOCAL PATHS ]#############################################################
+
+downloads/numpy-1.9.2-cp34-none-win32.whl
+# <- meta.path.pip-requirements string.unquoted.pip-requirements
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.path.pip-requirements string.unquoted.pip-requirements
+#        ^ punctuation.separator.path.pip-requirements
+#                                        ^ - meta - string
+
+/downloads/numpy-1.9.2-cp34-none-win32.whl
+# <- meta.path.pip-requirements string.unquoted.pip-requirements punctuation.separator.path.pip-requirements
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.path.pip-requirements string.unquoted.pip-requirements
+#         ^ punctuation.separator.path.pip-requirements
+#                                         ^ - meta - string
+
+~/downloads/numpy-1.9.2-cp34-none-win32.whl
+# <- meta.path.pip-requirements string.unquoted.pip-requirements variable.language.environment.home.pip-requirements
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.path.pip-requirements string.unquoted.pip-requirements
+#^ punctuation.separator.path.pip-requirements
+#          ^ punctuation.separator.path.pip-requirements
+
+./downloads/numpy-1.9.2-cp34-none-win32.whl
+# <- meta.path.pip-requirements string.unquoted.pip-requirements constant.other.path.self.pip-requirements
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.path.pip-requirements string.unquoted.pip-requirements
+#^ punctuation.separator.path.pip-requirements
+#          ^ punctuation.separator.path.pip-requirements
+
+../downloads/numpy-1.9.2-cp34-none-win32.whl
+# <- meta.path.pip-requirements string.unquoted.pip-requirements constant.other.path.parent.pip-requirements
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.path.pip-requirements string.unquoted.pip-requirements
+#^ constant.other.path.parent.pip-requirements
+# ^ punctuation.separator.path.pip-requirements
+#           ^ punctuation.separator.path.pip-requirements
+
+###[ URLS ]####################################################################
+
+http://wxpython.org/Phoenix/snapshot-builds/wxPython_Phoenix-3.0.3.dev1820+49a8884-cp34-none-win_amd64.whl
+# <- meta.link.protocol.pip-requirements markup.underline.link.pip-requirements
+#^^^^^^ meta.link.protocol.pip-requirements markup.underline.link.pip-requirements
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.link.pip-requirements markup.underline.link.pip-requirements
+#   ^^^ punctuation.separator.path.pip-requirements
+#                  ^ punctuation.separator.path.pip-requirements
+#                          ^ punctuation.separator.path.pip-requirements
+#                                          ^ punctuation.separator.path.pip-requirements
+
+git+https://domain.com/package.whl
+# <- meta.link.protocol.pip-requirements markup.underline.link.pip-requirements
+#^^^^^^^^^^^ meta.link.protocol.pip-requirements markup.underline.link.pip-requirements
+#           ^^^^^^^^^^^^^^^^^^^^^^ meta.link.pip-requirements markup.underline.link.pip-requirements
+#        ^^^ punctuation.separator.path.pip-requirements
+#                     ^ punctuation.separator.path.pip-requirements
+
+git+ssh://domain.com/package.whl
+# <- meta.link.protocol.pip-requirements markup.underline.link.pip-requirements
+#^^^^^^^^^ meta.link.protocol.pip-requirements markup.underline.link.pip-requirements
+#         ^^^^^^^^^^^^^^^^^^^^^^ meta.link.pip-requirements markup.underline.link.pip-requirements
+#      ^^^ punctuation.separator.path.pip-requirements
+#                   ^ punctuation.separator.path.pip-requirements
