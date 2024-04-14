@@ -3,7 +3,7 @@
 # https://www.sublimetext.com/docs/syntax.html
 # https://pip.pypa.io/en/stable/reference/requirements-file-format/
 name: PIP Requirements
-scope: text.pip-requirements
+scope: source.pip-requirements
 version: 2
 
 file_extensions:
