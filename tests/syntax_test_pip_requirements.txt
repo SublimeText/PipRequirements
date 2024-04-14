@@ -149,7 +149,7 @@ SomeProject[foo
 #^^^^^^^^^^ entity.name.package.pip-requirements
 #          ^^^^^ meta.brackets.pip-requirements
 #          ^ punctuation.section.brackets.begin.pip-requirements
-#           ^^^ entity.name.package.pip-requirements
+#           ^^^ entity.other.extra.pip-requirements
 #              ^ invalid.illegal.newline.pip-requirements
 
 SomeProject[foo, bar]
@@ -157,9 +157,9 @@ SomeProject[foo, bar]
 #^^^^^^^^^^ entity.name.package.pip-requirements
 #          ^^^^^^^^^^ meta.brackets.pip-requirements
 #          ^ punctuation.section.brackets.begin.pip-requirements
-#           ^^^ entity.name.package.pip-requirements
+#           ^^^ entity.other.extra.pip-requirements
 #              ^ punctuation.separator.pip-requirements
-#                ^^^ entity.name.package.pip-requirements
+#                ^^^ entity.other.extra.pip-requirements
 #                   ^ punctuation.section.brackets.end.pip-requirements
 
 SomeProject[foo ~= 1.4.2
@@ -167,7 +167,7 @@ SomeProject[foo ~= 1.4.2
 #^^^^^^^^^^ entity.name.package.pip-requirements
 #          ^^^^^ meta.brackets.pip-requirements
 #          ^ punctuation.section.brackets.begin.pip-requirements
-#           ^^^ entity.name.package.pip-requirements
+#           ^^^ entity.other.extra.pip-requirements
 #               ^^ keyword.operator.comparison.pip-requirements
 #                  ^^^^^ constant.numeric.version.pip-requirements
 
@@ -200,7 +200,7 @@ requests [security] >= 2.8.1, == 2.8.* ; python_version < "2.7"
 #^^^^^^^ entity.name.package.pip-requirements
 #        ^^^^^^^^^^ meta.brackets.pip-requirements
 #        ^ punctuation.section.brackets.begin.pip-requirements
-#         ^^^^^^^^ entity.name.package.pip-requirements
+#         ^^^^^^^^ entity.other.extra.pip-requirements
 #                 ^ punctuation.section.brackets.end.pip-requirements
 #                   ^^ keyword.operator.comparison.pip-requirements
 #                      ^^^^^ constant.numeric.version.pip-requirements
