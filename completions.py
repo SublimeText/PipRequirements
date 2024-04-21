@@ -5,6 +5,10 @@ import sublime
 import sublime_plugin
 
 from functools import cached_property
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from sublime_types import Point
 
 KIND_PIP_ARGUMENTS = [sublime.KIND_ID_VARIABLE, "v", "Argument"]
 
@@ -21,7 +25,7 @@ class CompletionsProvider(sublime_plugin.EventListener):
         self,
         view: sublime.View,
         prefix: str,
-        locations: list[sublime.Point]
+        locations: list[Point]
     ):
         location = locations[0]
         selector = "text.pip-requirements & (meta.expect-option-or-package | variable.parameter)"
