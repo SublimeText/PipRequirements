@@ -1,5 +1,5 @@
 {
-	"scope": "text.pip-requirements - meta.expect-option-or-package - entity.name - variable.parameter",
+	"scope": "source.pip-requirements - meta.expect-option-or-package - entity.name - variable.parameter",
 	"completions": [
 		{
 			"trigger": "and",

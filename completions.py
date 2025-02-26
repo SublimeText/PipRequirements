@@ -28,7 +28,7 @@ class CompletionsProvider(sublime_plugin.EventListener):
         locations: list[Point]
     ):
         location = locations[0]
-        selector = "text.pip-requirements & (meta.expect-option-or-package | variable.parameter)"
+        selector = "source.pip-requirements & (meta.expect-option-or-package | variable.parameter)"
         if any(view.match_selector(pt, selector) for pt in (location, location - 1)):
             return self.pip_arguments
 
